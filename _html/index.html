@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="shortcut icon" href="/assets/img/logo.png" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD - NODE</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="image-logo">
+                <img src="assets/img/logo.png" alt="Alien Green - inside a black box" />
+            </div>
+            <span>CRUD</span>
+        </nav>
+    </header>
+
+    <main id="hero">
+        <section class="addUser">
+            <form action="/addnewUser" method="post">
+                <label for="userName">
+            <h2>User name</h2>
+            <input
+              type="text"
+              name="userName"
+              required
+              id="userName"
+              class="box"
+            />
+          </label>
+                <label for="userEmail">
+            <h2>E-mail</h2>
+            <input
+              type="email"
+              name="userEmail"
+              required
+              id="userEmail"
+              class="box"
+            />
+          </label>
+                <label for="">
+            <h2>Enter an image</h2>
+            <input type="file" name="userPic" />
+          </label>
+
+                <input type="submit" id="sendButton" value="Save" />
+            </form>
+        </section>
+
+        <section class="Users">
+            <div class="headeing">
+                <h2>Usuários já adicionados</h2>
+            </div>
+            <div class="users-field">
+                <div class="user">
+                    <div class="image">
+                        <img src="assets/img/ogum.png" alt="" />
+                    </div>
+                    <div class="content">
+                        <h1>USER NAME <span>#ID</span></h1>
+                        <span>gabrielpovoa2@gmail.com</span>
+                    </div>
+                    <div id="UpdateOrDelete">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!--- Working on the options --->
+    <section class="options">
+        <div class="options-box">
+            <h2 id="update">UPDATE</h2>
+            <h2 id="delete">DELETE</h2>
+        </div>
+    </section>
+
+    <!--- Poup up Area - Delete --->
+
+    <section class="delete">
+        <div class="box-container">
+            <div class="content">
+                <h2>João Gabriel de Lima Póvoa</h2>
+                <h1>#ID</h1>
+            </div>
+            <p>E-mail</p>
+        </div>
+        <div class="buttons">
+            <button id="deleteButton">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+            <button id="back">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+        </div>
+        <audio src="/assets/garbage-sound.mp3" id="garbage-sound"></audio>
+
+    </section>
+
+    <section class="update">
+        <div class="heading">
+            <h2>Update some informations</h2>
+        </div>
+        <form action="/newUpdate/user" method="post">
+            <label for="userName">
+                <h2>User name</h2>
+                <input
+                  type="text"
+                  name="userName"
+                  required
+                  id="userName"
+                  class="box"
+                />
+              </label>
+            <label for="userEmail">
+                <h2>E-mail</h2>
+                <input
+                  type="email"
+                  name="userEmail"
+                  required
+                  id="userEmail"
+                  class="box"
+                />
+              </label>
+
+            <input type="submit" id="sendButton" value="Save Editings" />
+        </form>
+    </section>
+    <footer>
+        <nav>
+            <span>CRUD🦉</span>
+            <span style="text-decoration: underline;">Made by João Gabriel Póvoa</span>
+        </nav>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

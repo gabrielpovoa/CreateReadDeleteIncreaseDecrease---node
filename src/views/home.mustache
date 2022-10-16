@@ -1,0 +1,89 @@
+{{>partials/header}}
+<main id="hero">
+    <section class="addUser">
+        <form action="/addnewUser" method="POST">
+            <label for="userName">
+        <h2>User name</h2>
+        <input 
+            type="text" 
+            name="username" 
+            required 
+            id="userName" 
+            class="box" />
+      </label>
+            <label for="userEmail">
+        <h2>E-mail</h2>
+        <input
+          type="email"
+          name="useremail"
+          required
+          id="userEmail"
+          class="box"
+        />
+      </label>
+            <input type="submit" id="sendButton" value="Save" />
+        </form>
+    </section>
+
+    <section class="Users">
+        <div class="headeing">
+            {{#showUsers}}
+            <h2>Users recently added 👽</h2>
+            {{/showUsers}} {{^showUsers}}
+            <h2>There's no user to be shown 🦉</h2>
+            {{/showUsers}}
+
+        </div>
+        <div class="users-field">
+            {{#users}}
+            <li>
+                <div class="user">
+                    <div class="content">
+                        <h1>
+                            {{ name }} <span>#{{ id }}</span>
+                        </h1>
+                        <span>{{ email }}</span>
+                    </div>
+                    <div id="UpdateOrDelete">
+                        <a href="/user/{{id}}/update" class="fa-solid fa-pen-to-square"></a>
+                        <a href="/user/{{id}}/delete" class="fa-solid fa-delete-left"></a>
+                    </div>
+                </div>
+            </li>
+            {{/users}} {{^users}}
+            <div class="user imageOwl">
+                <img src="../sadOwl.png" alt="sad owl blue png" />
+            </div>
+            {{/users}}
+        </div>
+    </section>
+</main>
+
+
+
+<section class="update">
+    <div class="heading">
+        <h2>Update some informations</h2>
+    </div>
+    <form action="/newUpdate/user" method="post">
+        <label for="userName">
+      <h2>User name</h2>
+      <input type="text" name="userName" required id="userName" class="box" />
+    </label>
+        <label for="userEmail">
+      <h2>E-mail</h2>
+      <input
+        type="email"
+        name="userEmail"
+        required
+        id="userEmail"
+        class="box"
+      />
+    </label>
+
+        <input type="submit" id="sendButton" value="Save Editings" />
+    </form>
+</section>
+
+
+{{>partials/footer}}
