@@ -27,11 +27,13 @@
 
     <section class="Users">
         <div class="headeing">
-            {{#showUsers}}
+            {{#users}}
             <h2>Users recently added 👽</h2>
-            {{/showUsers}} {{^showUsers}}
+            {{/users}} 
+            
+            {{^users}}
             <h2>There's no user to be shown 🦉</h2>
-            {{/showUsers}}
+            {{/users}}
 
         </div>
         <div class="users-field">
@@ -52,7 +54,7 @@
             </li>
             {{/users}} {{^users}}
             <div class="user imageOwl">
-                <img src="../sadOwl.png" alt="sad owl blue png" />
+                <img src="../funAlien.png" alt="sad owl blue png" />
             </div>
             {{/users}}
         </div>
@@ -60,12 +62,12 @@
 </main>
 
 
-
+{{! Update area form }}
 <section class="update">
     <div class="heading">
         <h2>Update some informations</h2>
     </div>
-    <form action="/newUpdate/user" method="post">
+    <form action="/newUpdate/user" method="POST">
         <label for="userName">
       <h2>User name</h2>
       <input type="text" name="userName" required id="userName" class="box" />

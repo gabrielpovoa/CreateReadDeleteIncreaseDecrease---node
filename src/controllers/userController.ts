@@ -1,16 +1,19 @@
 import { Request, Response } from "express";
-import { User } from "../model/Users";
+import { User, UserInstance } from "../model/Users";
 
 export const homeController = async (req: Request, res: Response) => {
     let users = await User.findAll();
 
 
     let showUsers: boolean = false;
+    
     if (users.length >= 0) {
         showUsers = true;
-    };
+    } else {
+        showUsers = false
+    }
 
-
+    
     res.render('home', {
         users,
         showUsers,
@@ -19,7 +22,6 @@ export const homeController = async (req: Request, res: Response) => {
 
 export const CreateUser = async (req: Request, res: Response) => {
     let { username, useremail } = req.body;
-
     try {
         const addNewUser = User.build({
             name: username,
@@ -38,13 +40,15 @@ export const CreateUser = async (req: Request, res: Response) => {
 
 export const UpdateUser = async (req: Request, res: Response) => {
 
+
+    res.redirect('/')
 }
 
 export const DeleteUser = async (req: Request, res: Response) => {
     let id: string = req.params.id;
-
+    
     await User.destroy({
-        where: {id}
+        where: { id }
     })
 
     res.redirect('/')

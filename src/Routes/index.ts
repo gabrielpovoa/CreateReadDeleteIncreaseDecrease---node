@@ -6,6 +6,8 @@ const Routes = Router()
 Routes.get('/', homeController);
 
 Routes.post('/addnewUser', CreateUser);
+Routes.post('/newUpdate/user', UpdateUser)
+
 Routes.get('/user/:id/update',UpdateUser)
 Routes.get('/user/:id/delete', DeleteUser)
 
